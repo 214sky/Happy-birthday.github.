@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生日快乐</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+</style>
+</head>
+<body>
+<h1>生日快乐！</h1>
+<p>请输入年份：</p >
+<input type="number" id="yearInput" placeholder="年份">
+<button onclick="startProcess()">开始</button>
+
+<div id="consoleLog"></div>
+
+<script>
+async function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function genxin(year) {
+  log("系统正在检测，请稍等……");
+  await sleep(1000);
+  for (let i = 10; i <= 100; i += 10) {
+    log(`已检测${i}%……`);
+    await sleep(500);
+  }
+  log(`检测完成\n`);
+  log(`恭喜您！完成为期一年的生活副本\n`);
+  log(`为感谢各位玩家长期以来对地球OL的大力支持，现发放额外奖励\n`);
+  log(`正在发放奖励…\n`);
+  log(`本次奖励发放如下:\n`);
+  log(`1. 获得健康BUFF，提高身体恢复速度\n`);
+  log(`2. 永久获得活力加成，时刻获得好心情\n`);
+  log(`3. 幸运值MAX\n`);
+  log(`4. 快递无需等待\n`);
+  log(`5. 获得双倍金币加成\n`);
+  log(`奖励发放完毕…进行版本更新检测…\n`);
+  log(`发现新的版本 LIFE V${year}\n`);
+  log(`正在下载更新内容……\n`);
+  log(`本次更新预计用时1个月，届时开启新的副本和任务，感谢各位的支持……\n`);
+}
+
+async function finish(year) {
+  log(`版本： LIFE V${year}\n`);
+  log(`老赵，生日快乐,祝您生活愉快！\n`);
+}
+
+async function startProcess() {
+  const year = document.getElementById('yearInput').value;
+  await genxin(year);
+  await finish(year);
+}
+
+function log(message) {
+  const logDiv = document.getElementById('consoleLog');
+  const newLine = document.createElement('p');
+  newLine.textContent = message;
+  logDiv.appendChild(newLine);
+}
+</script>
+</body>
+</html>
